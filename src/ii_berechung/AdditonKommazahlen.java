@@ -9,6 +9,7 @@ public class AdditonKommazahlen {
         double summand1;
         double summand2;
 
+        System.out.println("Sie werden gleich nach 2 Zahlen gefragt, welche addiert werden.");
         System.out.println("Bitte geben Sie eine Zahl ein: ");
         summand1 = input.nextDouble();
         System.out.println("Bitte geben Sie eine zweite Zahl ein: ");
