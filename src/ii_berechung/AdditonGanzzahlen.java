@@ -9,6 +9,7 @@ public class AdditonGanzzahlen {
         int summand1;
         int summand2;
 
+        System.out.println("Sie werden gleich nach 2 Zahlen gefragt, welche addiert werden.");
         System.out.println("Bitte geben Sie eine Zahl ein: ");
         summand1 = input.nextInt();
         System.out.println("Bitte geben Sie eine zweite Zahl ein: ");
