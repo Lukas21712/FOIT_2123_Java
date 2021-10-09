@@ -26,10 +26,10 @@ public class Dose {
         f_gesamt = 2 * f_boden + f_mantel;
         v = f_boden * h;
 
-        System.out.println("Der Durchmesser des Dosenbodens beträgt: " + d_boden);
-        System.out.println("Die Fläche des Dosenbodens beträgt: " + f_boden);
-        System.out.println("Die Mantelfläche der Dose beträgt: " + f_mantel);
-        System.out.println("Die Gesamtfläche der Dose beträht: " + f_gesamt);
-        System.out.println("Das Volumen der Dose beträgt: " + v);
+        System.out.println("Der Durchmesser des Dosenbodens beträgt: " + Math.round(d_boden * 100.0) / 100.0);
+        System.out.println("Die Fläche des Dosenbodens beträgt: " + Math.round(f_boden * 100.0) / 100.0);
+        System.out.println("Die Mantelfläche der Dose beträgt: " + Math.round(f_mantel * 100.0) / 100.0);
+        System.out.println("Die Gesamtfläche der Dose beträht: " + Math.round(f_gesamt * 100.0) / 100.0);
+        System.out.println("Das Volumen der Dose beträgt: " + Math.round(v * 100.0) / 100.0);
     }
 }
