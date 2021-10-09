@@ -1,6 +1,4 @@
-package i_variablen;
-
-//Erledigt
+package i_variablen.i_xxx;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package ii_berechnung;
+package ii_berechnung.ii_x;
 
 import java.util.Scanner;
 

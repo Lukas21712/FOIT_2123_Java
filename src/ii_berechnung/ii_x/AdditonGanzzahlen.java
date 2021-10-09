@@ -1,19 +1,19 @@
-package ii_berechnung;
+package ii_berechnung.ii_x;
 
 import java.util.Scanner;
 
-public class AdditonKommazahlen {
+public class AdditonGanzzahlen {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        double summe;
-        double summand1;
-        double summand2;
+        int summe;
+        int summand1;
+        int summand2;
 
         System.out.println("Sie werden gleich nach 2 Zahlen gefragt, welche addiert werden.");
         System.out.println("Bitte geben Sie eine Zahl ein: ");
-        summand1 = input.nextDouble();
+        summand1 = input.nextInt();
         System.out.println("Bitte geben Sie eine zweite Zahl ein: ");
-        summand2 = input.nextDouble();
+        summand2 = input.nextInt();
 
         summe = summand1 + summand2;
 
