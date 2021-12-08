@@ -21,16 +21,13 @@ public class Notizbuch {
             if (menue == 1) {
                 System.out.println("Bitte geben Sie das Wort ein:");
                 liste_woerter.add(input.next());
-            }
-            else if (menue == 2) {
+            } else if (menue == 2) {
                 System.out.println("Bitte geben Sie das Wort ein:");
                 liste_woerter.remove(input.next());
-            }
-            else if (menue == 3) {
-                if (liste_woerter.isEmpty()){
+            } else if (menue == 3) {
+                if (liste_woerter.isEmpty()) {
                     System.out.println("Es befindet sich kein Wort in ihrem Notizbuch");
-                }
-                else {
+                } else {
                     int i = liste_woerter.size();
 
                     for (int liste_get = 0; liste_get != i; liste_get++) {
