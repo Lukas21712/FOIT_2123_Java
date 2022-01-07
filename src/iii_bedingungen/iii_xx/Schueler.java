@@ -11,7 +11,7 @@ public class Schueler {
         System.out.println("Sind Sie ein Schüler? ");
         schueler = input.nextBoolean();
 
-        if(schueler) {
+        if (schueler) {
             System.out.println("Du erhältst eine vergünstigte Fahrkarte");
         }
         else {

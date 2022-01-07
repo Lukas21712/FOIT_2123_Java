@@ -12,9 +12,9 @@ public class Gehaltsrechner {
         int kinderanzahl;
         boolean verheiratet;
         boolean haustiere;
-        double gehalt_verheiratet;
-        double gehalt_haustier;
-        double gehalt_kinder;
+        double zuschlag_verheiratet;
+        double zuschlag_haustier;
+        double zuschlag_kinder;
         double end_gehalt;
         String end_gehalt_formatiert;
 
@@ -30,33 +30,33 @@ public class Gehaltsrechner {
         haustiere = input.nextBoolean();
 
         if (verheiratet) {
-            gehalt_verheiratet = gehalt * 0.01;
+            zuschlag_verheiratet = gehalt * 0.01;
         }
         else {
-            gehalt_verheiratet = 0;
+            zuschlag_verheiratet = 0;
         }
 
         if (haustiere) {
-            gehalt_haustier = gehalt * 0.005;
+            zuschlag_haustier = gehalt * 0.005;
         }
         else {
-            gehalt_haustier = 0;
+            zuschlag_haustier = 0;
         }
 
         if (kinderanzahl >= 3) {
-            gehalt_kinder = gehalt * 0.05;
+            zuschlag_kinder = gehalt * 0.05;
         }
         else if (kinderanzahl == 2) {
-            gehalt_kinder = gehalt * 0.02;
+            zuschlag_kinder = gehalt * 0.02;
         }
         else if (kinderanzahl == 1) {
-            gehalt_kinder = gehalt * 0.015;
+            zuschlag_kinder = gehalt * 0.015;
         }
         else {
-            gehalt_kinder = 0;
+            zuschlag_kinder = 0;
         }
 
-        end_gehalt_formatiert = NumberFormat.getCurrencyInstance().format(end_gehalt = gehalt + gehalt_verheiratet + gehalt_haustier + gehalt_kinder);
+        end_gehalt_formatiert = NumberFormat.getCurrencyInstance().format(end_gehalt = gehalt + zuschlag_verheiratet + zuschlag_haustier + zuschlag_kinder);
         System.out.println("Hallo " + name + ",");
         System.out.println("Wir haben ihren Nettobetrag berechnet.");
         System.out.println("Sie erhalten ein Endgehalt von " + end_gehalt_formatiert);
