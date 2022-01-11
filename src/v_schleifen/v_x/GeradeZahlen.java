@@ -12,7 +12,9 @@ public class GeradeZahlen {
         a = input.nextInt();
 
         for (int i = 0; i < a; i++) {
-            if (i % 2 == )
+            if (i % 2 == 2) {
+
+            }
         }
     }
 }
