@@ -9,14 +9,18 @@ public class Galgenmaenchen {
         String word = "test";
         String eingabe = null;
         int length = word.length();
-
+        
         for (int counter = 0; counter != length; counter ++) {
             System.out.print("_ ");
         }
 
-        while (word != eingabe) {
+        while (!eingabe.equals(word)) {
             System.out.println("Bitte geben Sie einen Buchstaben ein: ");
             eingabe = input.next();
+        }
+
+        if (eingabe.equals(word)) {
+            System.out.println("Sie haben das richtige Wort erraten");
         }
     }
 }
