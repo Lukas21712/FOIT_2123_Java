@@ -10,7 +10,6 @@ public class GeradeUngerade {
 
         int durchlaeufe;
         int i = 0;
-        int zahl = zufall.nextInt();
         String player1;
         int points1 = 0;
         String player2;
@@ -22,6 +21,7 @@ public class GeradeUngerade {
 
         while (i < durchlaeufe) {
             i++;
+            int zahl = zufall.nextInt();
             System.out.println();
             System.out.println("Durchlauf " + i);
             System.out.println("Spieler 1:");
