@@ -32,7 +32,7 @@ public class GeradeUngerade {
             player2 = input.next();
             if (zahl % 2 == 0) {
                 System.out.println();
-                System.out.println("Die Zahl war gerade.");
+                System.out.println("Die Zahl war Gerade.");
                 if (player1.equals("Gerade")) {
                     points1 = points1 + 1;
                 }
@@ -42,7 +42,7 @@ public class GeradeUngerade {
             }
             else {
                 System.out.println();
-                System.out.println("Die Zahl war ungerade.");
+                System.out.println("Die Zahl war Ungerade.");
                 if (player1.equals("Ungerade")) {
                     points1 = points1 + 1;
                 }
@@ -52,11 +52,16 @@ public class GeradeUngerade {
             }
         }
         if (points1 > points2) {
-            gewinner = "Spieler 1";
+            System.out.println();
+            System.out.println("Der Gewinner ist Spieler 1");
+        }
+        else if(points2 > points1) {
+            System.out.println();
+            System.out.println("Der Gewinner ist Spieler 2");
         }
         else {
-            gewinner = "Spieler 2";
+            System.out.println();
+            System.out.println("Unentschieden");
         }
-        System.out.println("Der Gewinner ist " + gewinner);
     }
 }

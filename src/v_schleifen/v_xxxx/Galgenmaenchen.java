@@ -5,13 +5,15 @@ import java.util.Scanner;
 public class Galgenmaenchen {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int lives = 8;
-        String[] words = new String[] { "Praktikum", "Wirtschaftsinformatik", "Bahnsteig", "Java", "Computer" };
-        String randomWord = words[(int) (Math.random() * words.length)];
-        char[] letters = new char[randomWord.length()];
+        int lives = 5;
+        String word;
+
+        System.out.println("Bitte geben Sie ein Wort an (nur Kleinbuchstaben): ");
+        word = scanner.nextLine();
+        char[] letters = new char[word.length()];
 
         System.out.println("Game startet");
-        System.out.println("Das Word hat " + randomWord.length() + " Buchstaben.");
+        System.out.println("Das Word hat " + word.length() + " Buchstaben (nur Kleinbuchstaben).");
 
         for (int i = 0; i < letters.length; i++) {
             letters[i] = '_';
@@ -32,8 +34,8 @@ public class Galgenmaenchen {
             char letter = input.charAt(0);
             boolean isGuessCorrect = false;
 
-            for (int i = 0; i < randomWord.length(); i++) {
-                char l = randomWord.charAt(i);
+            for (int i = 0; i < word.length(); i++) {
+                char l = word.charAt(i);
 
                 if (l == letter) {
                     letters[i] = l;
@@ -67,7 +69,7 @@ public class Galgenmaenchen {
         }
 
         if (lives == 0) {
-            System.out.println("Du hast verloren! Das Word war: " + randomWord);
+            System.out.println("Du hast verloren! Das Word war: " + word);
         }
     }
 }
