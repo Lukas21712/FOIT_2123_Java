@@ -28,10 +28,8 @@ public class Notizbuch {
                 if (liste_woerter.isEmpty()) {
                     System.out.println("Es befindet sich kein Wort in ihrem Notizbuch");
                 } else {
-                    int i = liste_woerter.size();
-
-                    for (int liste_get = 0; liste_get != i; liste_get++) {
-                        System.out.println(liste_woerter.get(liste_get));
+                    for (int i = 0; i != liste_woerter.size(); i++) {
+                        System.out.println(liste_woerter.get(i));
                     }
                 }
             }
