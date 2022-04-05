@@ -55,6 +55,7 @@ public class Vokabeltrainer {
                 }
                 else {
                     System.out.println("Falsch!");
+                    punkte--;
                 }
             }
             System.out.println("------------------------------");
@@ -65,6 +66,7 @@ public class Vokabeltrainer {
             System.out.println("Bitte gibt eine Zahl ein: ");
             menu = input.nextInt();
         }
+        System.out.println("Erreichte Punkte: " + punkte);
     }
 
     private static void listDeutsch(List list, File datei){
