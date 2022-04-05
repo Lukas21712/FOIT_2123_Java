@@ -10,7 +10,9 @@ public class Vokabeltrainer {
         ArrayList<String> englisch = new ArrayList<String>();
 
         int menu;
-        int punkte;
+        int punkte = 0;
+        int zufallszahl;
+        String uebersetzung;
 
         System.out.println("Willkommen in deinem Vokabeltrainer!");
         System.out.println("1. Wortepaar erstellen: ");
@@ -30,8 +32,6 @@ public class Vokabeltrainer {
                 englisch.add(input.next());
                 listEnglisch(englisch, new File("/FOIT_2123/FOIT_2123_Java/src/vi_listen/vi_xxxx/englisch.txt"));
             } else if (menu == 2) {
-
-            } else if (menu == 3) {
                 if (deutsch.isEmpty()) {
                     System.out.println("------------------------------");
                     System.out.println("Kein Wortepaar vorhanden!");
@@ -39,15 +39,22 @@ public class Vokabeltrainer {
                     for (int i = 0; i != deutsch.size(); i++) {
                         System.out.println("Original: ");
                         System.out.println(deutsch.get(i));
-                    }
-                }
-                if (englisch.isEmpty()) {
-                    System.out.println("Keine Englische Übersetzung vorhanden!");
-                } else {
-                    for (int i = 0; i != englisch.size(); i++) {
                         System.out.println("Übersetung: ");
                         System.out.println(englisch.get(i));
+                        System.out.println("------------------------------");
                     }
+                }
+            } else if (menu == 3) {
+                zufallszahl = new Random().nextInt(deutsch.size());
+                System.out.println("Deutsches Wort: " + deutsch.get(zufallszahl));
+                System.out.println("Bitte geben Sie die Englische Übersetzung ein: ");
+                uebersetzung = input.next();
+                if (uebersetzung.equals(englisch.get(zufallszahl))) {
+                    System.out.println("Richtig!");
+                    punkte++;
+                }
+                else {
+                    System.out.println("Falsch!");
                 }
             }
             System.out.println("------------------------------");
