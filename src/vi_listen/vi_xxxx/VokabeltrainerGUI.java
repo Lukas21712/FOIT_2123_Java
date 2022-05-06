@@ -322,9 +322,6 @@ public class VokabeltrainerGUI extends JFrame {
                 questPanel.add(questCheckLabel);
                 questPanel.add(questSaveLabel);
 
-                Random questRandom = new Random();
-                int questNumber = questRandom.nextInt(german.size());
-
                 questBackButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -335,6 +332,8 @@ public class VokabeltrainerGUI extends JFrame {
                 questStartButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        Random questRandom = new Random();
+                        int questNumber = questRandom.nextInt(german.size());
                         questGermanField.setText(german.get(questNumber));
 
                         questCheckButton.addActionListener(new ActionListener() {
