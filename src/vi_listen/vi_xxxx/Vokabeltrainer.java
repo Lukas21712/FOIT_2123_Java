@@ -27,10 +27,10 @@ public class Vokabeltrainer {
                 System.out.println("------------------------------");
                 System.out.println("Bitte gibt eine deutsches Wort an: ");
                 deutsch.add(input.next());
-                listDeutsch(deutsch, new File("/FOIT_2123/FOIT_2123_Java/src/vi_listen/vi_xxxx/deutsch.txt"));
+                listDeutsch(deutsch, new File("/FOIT_2123_Java/src/vi_listen/vi_xxxx/deutsch.txt"));
                 System.out.println("Bitte gibt nun die englische Übersetzung an: ");
                 englisch.add(input.next());
-                listEnglisch(englisch, new File("/FOIT_2123/FOIT_2123_Java/src/vi_listen/vi_xxxx/englisch.txt"));
+                listEnglisch(englisch, new File("/FOIT_2123_Java/src/vi_listen/vi_xxxx/englisch.txt"));
             } else if (menu == 2) {
                 if (deutsch.isEmpty()) {
                     System.out.println("------------------------------");

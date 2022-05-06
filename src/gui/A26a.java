@@ -3,6 +3,7 @@ package gui;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 
 public class A26a extends JFrame {
     private JTextField input;
@@ -34,9 +35,9 @@ public class A26a extends JFrame {
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String inputString = input.getText();
-                String vokalString = vokal.getText();
-                String outputString = input.getText();
+                String inputString = input.getText().toLowerCase();
+                String vokalString = vokal.getText().toLowerCase();
+                String outputString = input.getText().toLowerCase();
 
                 if (vokalString.equals("a") || vokalString.equals("e") || vokalString.equals("i") || vokalString.equals("o") || vokalString.equals("u")) {
                     if (vokalString.contains("a")) {
