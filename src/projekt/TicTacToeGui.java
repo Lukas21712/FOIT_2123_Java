@@ -1,42 +1,146 @@
 package projekt;
 
-import javax.swing.*;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
-public class TicTacToeGui extends JFrame {
+
+public class TicTacToeGui extends JPanel {
+
     private JPanel mainPanel;
-    private JButton kasten1;
-    private JButton kasten2;
-    private JButton kasten3;
-    private JButton kasten4;
-    private JButton kasten5;
-    private JButton kasten6;
-    private JButton kasten7;
-    private JButton kasten8;
-    private JButton kasten9;
-    private JLabel message;
+
+    char playerSign = 'x';
+    int totalCells = 9;
+    int totalRows = 3;
+    int totalColumns = 3;
+    JButton[] jButtons = new JButton[totalCells];
 
     public TicTacToeGui() {
-        setContentPane(mainPanel);
-        setTitle("TicTacToe");
-        setSize(235,330);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setVisible(true);
-        setLayout(null);
+        GridLayout ticTacToeGridLayout = new GridLayout(totalRows, totalColumns);
+        setLayout(ticTacToeGridLayout);
 
-        kasten1.setBounds(10, 10, 60, 60);
-        kasten2.setBounds(80, 10, 60, 60);
-        kasten3.setBounds(150, 10, 60, 60);
-        kasten4.setBounds(10, 80, 60, 60);
-        kasten5.setBounds(80, 80, 60, 60);
-        kasten6.setBounds(150, 80, 60, 60);
-        kasten7.setBounds(10, 150, 60, 60);
-        kasten8.setBounds(80, 150, 60, 60);
-        kasten9.setBounds(150, 150, 60, 60);
-        message.setBounds(220, 10, 220, 60);
-        message.setHorizontalAlignment(SwingConstants.CENTER);
+        createButtons();
+
     }
+
+    public void createButtons() {
+        for (int i = 0; i <= 8; i++) {
+
+            jButtons[i] = new JButton();
+
+            jButtons[i].setText("");
+
+            jButtons[i].addActionListener(e -> {
+
+                JButton clickedBtn = (JButton) e.getSource();
+                clickedBtn.setText(String.valueOf(playerSign));
+                clickedBtn.setEnabled(false);
+
+                if (playerSign == 'x') {
+                    playerSign = 'o';
+                } else {
+                    playerSign = 'x';
+                }
+
+                showWinner();
+            });
+
+            add(jButtons[i]);
+        }
+    }
+
+
+    public void showWinner() {
+
+        if (checkForWinner()) {
+
+            if (playerSign == 'x') {
+                playerSign = 'o';
+            } else {
+                playerSign = 'x';
+            }
+
+            JOptionPane jOptionPane = new JOptionPane();
+            int dialog = JOptionPane.showConfirmDialog(jOptionPane, "Spiel vorbei. " + "Der Gewinner ist " + playerSign + " ", "Ergebniss",
+                    JOptionPane.DEFAULT_OPTION);
+
+            if (dialog == JOptionPane.OK_OPTION) {
+                System.exit(0);
+            }
+
+
+        } else if (checkIfMatchDraw()) {
+            JOptionPane jOptionPane = new JOptionPane();
+            int dialog = JOptionPane.showConfirmDialog(jOptionPane, "Unentschieden", "Ergebniss", JOptionPane.DEFAULT_OPTION);
+
+            if (dialog == JOptionPane.OK_OPTION) {
+                System.exit(0);
+            }
+        }
+    }
+
+
+    public boolean checkIfMatchDraw() {
+        boolean gridsFull = true;
+        for (int i = 0; i < totalCells; i++) {
+            if (jButtons[i].getText().equals("")) {
+                gridsFull = false;
+            }
+        }
+        return gridsFull;
+    }
+
+    public boolean checkForWinner() {
+        return checkAllRows() || checkAllColumns() || checkTheDiagonals();
+    }
+
+    public boolean checkAllRows() {
+        int i = 0;
+        for (int j = 0; j < 3; j++) {
+            if (jButtons[i].getText().equals(jButtons[i + 1].getText()) && jButtons[i].getText().equals(jButtons[i + 2].getText())
+                    && !jButtons[i].getText().equals("")) {
+                return true;
+            }
+            i = i + 3;
+
+        }
+        return false;
+    }
+
+
+    public boolean checkAllColumns() {
+
+        int i = 0;
+        for (int j = 0; j < 3; j++) {
+
+            if (jButtons[i].getText().equals(jButtons[i + 3].getText()) && jButtons[i].getText().equals(jButtons[i + 6].getText())
+                    && !jButtons[i].getText().equals("")) {
+                return true;
+            }
+            i++;
+        }
+        return false;
+    }
+
+    public boolean checkTheDiagonals() {
+        if (jButtons[0].getText().equals(jButtons[4].getText()) && jButtons[0].getText().equals(jButtons[8].getText())
+                && !jButtons[0].getText().equals(""))
+            return true;
+        else
+            return jButtons[2].getText().equals(jButtons[4].getText()) && jButtons[2].getText().equals(jButtons[6].getText())
+                    && !jButtons[2].getText().equals("");
+    }
+
 
     public static void main(String[] args) {
-        TicTacToeGui myFrame = new TicTacToeGui();
+        JFrame ticTacToeField = new JFrame("Tic Tac Toe");
+
+        ticTacToeField.getContentPane().add(new TicTacToeGui());
+        ticTacToeField.setBounds(500, 500, 600, 550);
+        ticTacToeField.setVisible(true);
+        ticTacToeField.setLocationRelativeTo(null);
     }
+
 }
